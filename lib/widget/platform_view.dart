@@ -53,6 +53,7 @@ Widget _createPlatformView({
       creationParams: creationParams,
       creationParamsCodec: const StandardMessageCodec(),
       onPlatformViewCreated: onPlatformViewCreated,
+      gestureRecognizers: gestureRecognizers,
     );
   } else {
     throw PlatformException(code: "unsupportedPlatform");
