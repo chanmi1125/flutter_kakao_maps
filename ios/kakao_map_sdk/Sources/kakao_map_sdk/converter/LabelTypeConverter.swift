@@ -92,7 +92,12 @@ extension PoiStyle {
 
 extension PoiOptions {
     convenience init(payload: [String: Any]) {
-        self.init(styleID: asString(payload["styleId"]!))
+        let styleID = asString(payload["styleId"]!)
+        if let rawId = payload["id"], !(rawId is NSNull) {
+            self.init(styleID: styleID, poiID: asString(rawId))
+        } else {
+            self.init(styleID: styleID)
+        }
         if let rank = payload["rank"] {
             if !(rank is NSNull) {
                 self.rank = asInt(rank)

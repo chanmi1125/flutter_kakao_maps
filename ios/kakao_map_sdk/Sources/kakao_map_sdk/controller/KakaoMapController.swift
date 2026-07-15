@@ -71,7 +71,6 @@ class KakaoMapController: KakaoMapControllerSender, KakaoMapControllerHandler {
     }
 
     func setEventHandler(event: UInt8) {
-        print("[HISSPOT_DEBUG] setEventHandler called with event=\(event)")
         if KakaoMapEvent.CameraMoveStart.compare(value: event) {
             kakaoMap.addCameraWillMovedEventHandler(target: cameraListener, handler: CameraListener.onCameraWillMovedEvent)
         }
@@ -92,7 +91,6 @@ class KakaoMapController: KakaoMapControllerSender, KakaoMapControllerHandler {
         }
         if KakaoMapEvent.PoiClick.compare(value: event) || KakaoMapEvent.LodPoiClick.compare(value: event) {
             poiClickListener.enable = true
-            print("[HISSPOT_DEBUG] poiClickListener.enable set to true")
         }
     }
 

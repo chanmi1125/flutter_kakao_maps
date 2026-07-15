@@ -11,7 +11,6 @@ class PoiClickListener {
     }
 
     func onPoiInteractionEvent(_ param: PoiInteractionEventParam) {
-        print("[HISSPOT_DEBUG] onPoiInteractionEvent fired, enable=\(enable), poiId=\(param.poiItem.itemID)")
         if enable {
             channel.invokeMethod("onPoiClick", arguments: [
                 "layerId": param.poiItem.layerID,
